@@ -1,4 +1,4 @@
-async function fetchData() {
+async function fetchData(id) {
     const url1 = "https://timetable.iitr.ac.in:4400/api/external/studentscourse";
     const url2 = "https://timetable.iitr.ac.in:4400/api/aao/dep/lecturecoursbatch";
     const url3 = "https://timetable.iitr.ac.in:4400/get/studentsNo/studentcoursetut";
@@ -11,7 +11,7 @@ async function fetchData() {
                 'Content-Type': 'application/x-www-form-urlencoded'
             },
             body: new URLSearchParams({
-                "EnrollmentNo": "23112005",
+                "EnrollmentNo": "23112001",
                 "StSessionYear": "2024-25",
                 "Semester": "Autumn"
             })
@@ -42,7 +42,7 @@ async function fetchData() {
         const lectureData = (await response2.json()).result;
 
         const myLecs = lectureData
-            .filter(lecture => lecture.Sub_Batches.includes(SubBatch))
+            .filter(lecture => (lecture.Sub_Batches.includes(SubBatch) || lecture.Sub_Batches==""))
             .map(lecture => ({
                 "Course_code": lecture.Course_code,
                 "Room_no": lecture.Room_no,
@@ -86,7 +86,7 @@ async function fetchData() {
     }
 }
 
-fetchData();
+// fetchData();
 
 async function gethtml(item){
     var type = "";
@@ -102,3 +102,15 @@ async function gethtml(item){
     var h = '<div class="'+type+'">'+item.Course_code+' '+item.Room_no+'<br>'+item.Time+'</div>'
     return h;
 }
+
+async function UpdateUI(id){
+    data = await fetchData(id);
+    for (var i=0; i<data.length;i++) {
+        var item = data[i];
+        var html = await gethtml(item);
+        var id = item.Day+item.Time.slice(0,2)
+        document.getElementById(id).innerHTML = html;
+    }
+}
+
+UpdateUI('23112005');
