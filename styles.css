@@ -1,0 +1,147 @@
+body {
+    background-color: black;
+}
+
+
+
+h1 {
+    color: #FFF;
+    font-family: Inter;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin: 5px;
+}
+
+h3 {
+    color: #5A5A5A;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin: 5px;
+}
+
+
+
+p {
+    color: #5A5A5A;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin: 0;
+}
+
+.color {
+    width: 48px;
+    height: 14px;
+    border-radius: 8px;
+}
+
+.bubble {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+}
+
+#header-area {
+    padding: 5% 5% 1% 5%;
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+    border-bottom: 1px solid #414141;
+}
+
+#left {
+    flex-grow: 1;
+}
+
+
+#right {
+    display: flex;
+    flex-grow: 1;
+    justify-content: flex-end;
+    align-items: end;
+}
+
+#bubbles {
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    align-items: center;
+}
+
+#bubble1 {
+    background: #015D90;
+}
+
+#bubble2 {
+    background: #4BBA87;
+}
+
+#bubble3 {
+    background: #D8BF3D;
+}
+
+
+.timetable {
+    padding: 1% 5% 0% 5%;
+}
+
+.theader {
+    display: grid;
+    grid-column: 2;
+    grid-template-columns: repeat(5, 1fr);
+    text-align: center;
+}
+
+.theader .day {
+    padding: 10px;
+    border-right: 1px solid #444;
+    color: #FFF;
+    font-family: Inter;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.schedule {
+    display: grid;
+    grid-template-columns: auto repeat(5, 1fr);
+    grid-template-rows: repeat(9, 1fr) auto repeat(3, 1fr);
+    gap: 1px;
+    /* background-color: #333; */
+    color: white;
+    font-family: Arial, sans-serif;
+  }
+  
+  .timestamp {
+    grid-column: 1;
+    align-self: start;
+    padding: 5px;
+    font-size: 0.8em;
+  }
+  
+  .schedule-item {
+    padding: 10px;
+    /* border-radius: 5px; */
+    font-size: 0.9em;
+  }
+  
+  .empty {
+    background-color: #1e1e1e;
+  }
+  
+  .blue {
+    background-color: #0077be;
+  }
+  
+  .green {
+    background-color: #2ecc71;
+  }
